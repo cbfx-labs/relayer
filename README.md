@@ -36,7 +36,7 @@ Every runtime zip has a matching `.sha256` file in the same release. In
 PowerShell:
 
 ```powershell
-(Get-FileHash .\Relayer_runtime_1.3.2_win32.zip -Algorithm SHA256).Hash
+(Get-FileHash .\Relayer_runtime_1.3.3_win32.zip -Algorithm SHA256).Hash
 ```
 
 It must match the `.sha256` file exactly.
