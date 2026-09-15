@@ -27,7 +27,7 @@ version as `Relayer.previous`, and keeps you activated.
 
 ## Install on macOS
 
-For Apple Silicon Macs (M1 or newer) on macOS 12 or later. In Terminal:
+For Apple Silicon Macs (M1 or newer) on macOS 15 (Sequoia) or later. In Terminal:
 
 ```sh
 curl -fsSL https://github.com/cbfx-labs/relayer/releases/latest/download/Install-Relayer-macos.sh | sh
@@ -59,6 +59,18 @@ To install without the internet download, put `Install-Relayer-linux.sh`, the
 `Relayer_runtime_*_linux-x86_64.zip` and its `.sha256` in one folder and run
 `sh Install-Relayer-linux.sh` there.
 
+## Tailscale
+
+Relayer reaches the studio over Tailscale, and it checks that before it sends or
+downloads anything. Keep Tailscale on while you use Relayer; if it is off, the
+status chip says **TAILSCALE OFF** and nothing moves until you turn it on.
+
+## Updates
+
+When the studio publishes a new version, Relayer shows an update button.
+**Update now** closes Relayer, installs the new version, keeps you activated and
+opens it again. You can also run the installer again at any time.
+
 ## Your key
 
 The `.relayerkey` file is yours alone. Don't forward it or upload it anywhere.
@@ -70,7 +82,7 @@ Every runtime zip has a matching `.sha256` file in the same release. In
 PowerShell:
 
 ```powershell
-(Get-FileHash .\Relayer_runtime_1.3.6_win32.zip -Algorithm SHA256).Hash
+(Get-FileHash .\Relayer_runtime_<version>_win32.zip -Algorithm SHA256).Hash
 ```
 
 It must match the `.sha256` file exactly. On Linux:
