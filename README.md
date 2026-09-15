@@ -25,6 +25,21 @@ It installs to `%LOCALAPPDATA%\Programs\Relayer`, with a Start menu and a
 Desktop shortcut. Running the installer again upgrades it, keeps the previous
 version as `Relayer.previous`, and keeps you activated.
 
+## Install on macOS
+
+For Apple Silicon Macs (M1 or newer) on macOS 12 or later. In Terminal:
+
+```sh
+curl -fsSL https://github.com/cbfx-labs/relayer/releases/latest/download/Install-Relayer-macos.sh | sh
+```
+
+It downloads the runtime, checks its SHA-256, and installs it for your user only
+(no admin) in `~/Applications/Relayer`. Installed this way there is no
+"unidentified developer" prompt. Relayer opens; **drag the `.relayerkey` file
+you were sent onto its window.** Keep the `Relayer` folder together — the
+`Relayer.app` inside it is a shortcut into that folder; drag it to the Dock
+from there. Running the command again upgrades and keeps you activated.
+
 ## Install on Linux
 
 For x86_64 machines running Rocky 9, Ubuntu 22.04 or newer (glibc 2.34+). In a
@@ -59,6 +74,5 @@ PowerShell:
 ```
 
 It must match the `.sha256` file exactly. On Linux:
-`sha256sum Relayer_runtime_*_linux-x86_64.zip`.
-
-A macOS build will follow.
+`sha256sum Relayer_runtime_*_linux-x86_64.zip`; on macOS:
+`shasum -a 256 Relayer_runtime_*_darwin-arm64.zip`.
