@@ -25,6 +25,25 @@ It installs to `%LOCALAPPDATA%\Programs\Relayer`, with a Start menu and a
 Desktop shortcut. Running the installer again upgrades it, keeps the previous
 version as `Relayer.previous`, and keeps you activated.
 
+## Install on Linux
+
+For x86_64 machines running Rocky 9, Ubuntu 22.04 or newer (glibc 2.34+). In a
+terminal:
+
+```sh
+curl -fsSL https://github.com/cbfx-labs/relayer/releases/latest/download/Install-Relayer-linux.sh | sh
+```
+
+It downloads the runtime, checks its SHA-256, and installs it for your user only
+(no root) in `~/.local/share/cbfx-relayer`, with an entry in your applications
+menu. Relayer opens; **drag the `.relayerkey` file you were sent onto its
+window.** Running it again upgrades it, keeps the previous version as
+`cbfx-relayer.previous`, and keeps you activated.
+
+To install without the internet download, put `Install-Relayer-linux.sh`, the
+`Relayer_runtime_*_linux-x86_64.zip` and its `.sha256` in one folder and run
+`sh Install-Relayer-linux.sh` there.
+
 ## Your key
 
 The `.relayerkey` file is yours alone. Don't forward it or upload it anywhere.
@@ -39,6 +58,7 @@ PowerShell:
 (Get-FileHash .\Relayer_runtime_1.3.6_win32.zip -Algorithm SHA256).Hash
 ```
 
-It must match the `.sha256` file exactly.
+It must match the `.sha256` file exactly. On Linux:
+`sha256sum Relayer_runtime_*_linux-x86_64.zip`.
 
-macOS and Linux builds will follow.
+A macOS build will follow.
